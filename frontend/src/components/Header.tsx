@@ -7,7 +7,7 @@ interface Props {
 export default function Header({}: Props): ReactElement {
   return (
     <div>
-      <h1>Financial Freedom</h1>
+      <h1 className="text-4xl">Financial Freedom</h1>
     </div>
   )
 }

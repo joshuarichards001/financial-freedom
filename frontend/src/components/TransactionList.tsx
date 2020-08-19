@@ -8,10 +8,13 @@ interface Props {
 
 export default function TransactionList({transactionList, deleteTransaction}: Props): ReactElement {
   return (
-    <ul>
+    <div className="table w-1/2 border-solid border-2 border-gray-200 rounded">
+      <div className="table-row-group d">   
       {transactionList.map(transaction => (
         <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction}/>  
       ))}
-    </ul>
+    </div>
+    </div>
+    
   )
 }

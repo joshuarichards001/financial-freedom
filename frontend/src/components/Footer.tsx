@@ -6,7 +6,7 @@ interface Props {
 
 export default function Footer({}: Props): ReactElement {
   return (
-    <div>
+    <div className="absolute bottom-0">
       <p>Developed by Josh Richards</p>
     </div>
   )

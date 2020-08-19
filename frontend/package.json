@@ -11,6 +11,8 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router": "^5.1.8",
     "@types/uuid": "^8.3.0",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -19,10 +21,11 @@
     "uuid": "^8.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run tailwind:css && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "tailwind:css": "postcss src/assets/tailwind.css -o src/assets/index.css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +44,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.46",
-    "@types/react-router-dom": "^5.1.5"
+    "@types/react-router-dom": "^5.1.5",
+    "tailwindcss": "^1.7.1"
   }
 }

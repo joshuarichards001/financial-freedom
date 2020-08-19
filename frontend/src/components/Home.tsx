@@ -1,45 +1,14 @@
 import React, { useState } from 'react'
-import { v4 } from 'uuid';
 import TransactionList from './TransactionList';
 import AddTransaction from './AddTransaction';
 import Header from './Header';
 import PieChart from './PieChart';
 import Footer from './Footer';
+import { v4 } from 'uuid';
+import { SAMPLE_DATA } from '../constants/SampleData';
 
 export default function Home() {
-  const initialTransactions: Transaction[] = [
-    {
-      id: v4(),
-      income: true,
-      amount: 653.50,
-      category: "Paycheck"
-    },{
-      id: v4(),
-      income: false,
-      amount: 230.00,
-      category: "Rent"
-    },{
-      id: v4(),
-      income: false,
-      amount: 15.99,
-      category: "Takeaways"
-    },{
-      id: v4(),
-      income: false,
-      amount: 49.99,
-      category: "Clothes"
-    },{
-      id: v4(),
-      income: true,
-      amount: 653.50,
-      category: "Paycheck"
-    },{
-      id: v4(),
-      income: false,
-      amount: 32.50,
-      category: "Restaurant"
-    },
-  ];
+  const initialTransactions: Transaction[] = SAMPLE_DATA
   const [transactionList, setTransactionList] = useState(initialTransactions)
 
   const addTransaction: AddTransaction = (income: boolean, amount: number, category: string) => {
@@ -55,7 +24,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="mx-12 my-5">
       <Header />
       <PieChart transactionList={transactionList}/>
       <AddTransaction addTransaction={addTransaction}/>

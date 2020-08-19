@@ -17,7 +17,7 @@ export default function PieChart({ transactionList }: Props): ReactElement {
 
   return (
     <div>
-      <h2>{calculateTotal(transactionList)}</h2>
+      <h2 className="text-2xl">{calculateTotal(transactionList)}</h2>
     </div>
   )
 }
