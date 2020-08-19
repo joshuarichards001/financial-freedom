@@ -1,13 +1,17 @@
 import React, { ReactElement } from 'react'
+import Transaction from './Transaction'
 
 interface Props {
-  
+  transactionList: Transaction[],
+  deleteTransaction: DeleteTransaction
 }
 
-export default function TransactionList({}: Props): ReactElement {
+export default function TransactionList({transactionList, deleteTransaction}: Props): ReactElement {
   return (
-    <div>
-      
-    </div>
+    <ul>
+      {transactionList.map(transaction => (
+        <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction}/>  
+      ))}
+    </ul>
   )
 }
