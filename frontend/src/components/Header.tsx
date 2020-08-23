@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import styles from "../Main.module.css";
 
 interface Props {
   
@@ -6,8 +7,11 @@ interface Props {
 
 export default function Header({}: Props): ReactElement {
   return (
-    <div>
-      <h1 className="text-4xl">Financial Freedom</h1>
-    </div>
+    <ul className={styles.headerList}>
+      <li className={styles.headerLogo}><a href="">Financial Freedom</a></li>
+      <li className={styles.headerItem}><a href="">Settings</a></li>
+      <li className={styles.headerItem}><a href="">Budget</a></li>
+      <li className={styles.headerItem}><a href="">Transactions</a></li>
+    </ul>
   )
 }

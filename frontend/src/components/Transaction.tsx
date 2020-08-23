@@ -1,27 +1,29 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from "react";
+import styles from "../Main.module.css";
 
 interface Props {
-  transaction: Transaction
-  deleteTransaction: DeleteTransaction
+  transaction: Transaction;
+  deleteTransaction: DeleteTransaction;
 }
 
-export default function Transaction({transaction, deleteTransaction}: Props): ReactElement {
+export default function Transaction({
+  transaction,
+  deleteTransaction,
+}: Props): ReactElement {
   return (
-    <div style={{ color: transaction.income ? "green" : "red"}} className="p-3 table-row">
-      <div className="table-cell px-2 py-2">
-        {transaction.category}
-      </div>
-      <div className="table-cell px-2 py-2">
-        {transaction.amount}
-      </div>
-      <div className="table-cell px-2 py-2">
-        <button 
-          onClick={() => { deleteTransaction(transaction.id) }}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-0 px-1 rounded"
+    <tr style={{ color: transaction.income ? "green" : "red" }}>
+      <td className={styles.transactionItem}>{transaction.category}</td>
+      <td className={styles.transactionItem}>{transaction.amount}</td>
+      <td className={styles.transactionItem}>
+        <button
+          className={styles.deleteButton}
+          onClick={() => {
+            deleteTransaction(transaction.id);
+          }}
         >
           X
         </button>
-      </div>
-    </div>
-  )
+      </td>
+    </tr>
+  );
 }

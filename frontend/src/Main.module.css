@@ -1,0 +1,126 @@
+* {
+  font-family: Futura;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eeeeee;
+}
+
+
+
+/* Header */
+.headerList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 80px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.headerLogo {
+  float: left;
+}
+
+.headerItem {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px 20px 20px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px 100px;
+  float: left;
+}
+
+
+
+/* Data visualisation */
+.pieChart {
+  margin: 0px 0px 20px;
+}
+
+
+/* Add Transaction Form */
+.gridContainer {
+  display: grid;
+  grid-template-columns: 150px 150px 150px;
+}
+
+.inputStyle {
+  margin: 4px 2px;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.buttonStyle {
+  text-align: center;
+  border-radius: 4px;
+  color: black;
+  font-size: 16px;
+  margin: 4px 2px;
+  padding: 2px;
+  cursor: pointer;
+  outline: none;
+  background-color: white;
+}
+
+.buttonStyle:hover {
+  filter: brightness(90%);
+}
+
+
+
+/* Transactions */
+table {
+  margin: 20px 0px;
+  border-style: solid;
+  border-color: #111;
+  border-width: 2px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #eeeeee}
+tr:hover {background-color:#dddddd;}
+
+th {
+  background-color: #aaaaaa;
+}
+
+td {
+  cursor: pointer;
+}
+
+.deleteButton {
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgb(253, 56, 34);
+  color: white;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  filter: brightness(90%);
+}
