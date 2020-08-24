@@ -29,9 +29,8 @@ In order to setup the code on your computer perform the following:
 
 Then to run this application you will need to perform the following in two separate terminals:
 
-  Terminal 1. Go into backend ```[cd backend]``` and run ```[python3 manage.py runserver]```
-
-  Terminal 2. Go into frontend ```[cd frontend]``` and run ```[npm start]```
+1. In the first terminal go into backend ```[cd backend]``` and run ```[python3 manage.py runserver]```
+2. In the second terminal go into frontend ```[cd frontend]``` and run ```[npm start]```
 
 
 Here are some screenshots to show how it looks.
