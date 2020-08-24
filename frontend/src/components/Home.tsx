@@ -1,35 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TransactionList from "./TransactionList";
 import AddTransaction from "./AddTransaction";
 import Header from "./Header";
 import PieChart from "./PieChart";
 import Footer from "./Footer";
-import { v4 } from "uuid";
-import { SAMPLE_DATA } from "../constants/SampleData";
+import axios from "axios";
 import styles from "../Main.module.css";
+import { getTransactions, addTransaction, deleteTransaction } from './API'
 
 export default function Home() {
-  const initialTransactions: Transaction[] = SAMPLE_DATA;
-  const [transactionList, setTransactionList] = useState(initialTransactions);
+  const [transactionList, setTransactionList] = useState<Transaction[]>([]);
 
-  const addTransaction: AddTransaction = (
-    income: boolean,
-    amount: number,
-    category: string
-  ) => {
-    const newTransactions: Transaction[] = [
-      ...transactionList,
-      { id: v4(), income: income, amount: amount, category: category },
-    ];
-    setTransactionList(newTransactions);
-  };
+  useEffect(() => {
+    handleFetchTransactions()
+  }, [])
 
-  const deleteTransaction: DeleteTransaction = (id: string) => {
-    const newTransactions: Transaction[] = transactionList.filter(
-      (transactionItem) => id !== transactionItem.id
-    );
-    setTransactionList(newTransactions);
-  };
+  // Gets a list of all transactions from API
+  const handleFetchTransactions: HandleFetchTransactions = () => {
+    getTransactions()
+    .then(({ data }: Transaction[] | any) => {
+      setTransactionList(data)
+    })
+    .catch((err: Error) => console.log(err))
+  }
+
+  // Adds the given transaction to the API
+  const handleAddTransaction: HandleAddTransaction = (income: boolean, amount: number, category: string) => {
+    addTransaction(income, amount, category)
+    .then(() => {
+      handleFetchTransactions()
+    })
+    .catch((err) => console.log(err))
+  }
+
+  // Deletes the given transaction from the API
+  const handleDeleteTransaction: HandleDeleteTransaction = (id: string) => {
+    deleteTransaction(id)
+    .then(() => {
+        handleFetchTransactions()
+      })
+      .catch((err) => console.log(err))
+  }
 
   return (
     <body>
@@ -38,10 +49,10 @@ export default function Home() {
       </div>
       <div className={styles.container}>
         <PieChart transactionList={transactionList} />
-        <AddTransaction addTransaction={addTransaction} />
+        <AddTransaction addTransaction={handleAddTransaction} />
         <TransactionList
           transactionList={transactionList}
-          deleteTransaction={deleteTransaction}
+          deleteTransaction={handleDeleteTransaction}
         />
         <Footer />
       </div>

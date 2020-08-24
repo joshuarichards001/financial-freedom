@@ -5,7 +5,7 @@ import styles from '../Main.module.css'
 
 interface Props {
   transactionList: Transaction[],
-  deleteTransaction: DeleteTransaction
+  deleteTransaction: HandleDeleteTransaction
 }
 
 export default function TransactionList({transactionList, deleteTransaction}: Props): ReactElement {

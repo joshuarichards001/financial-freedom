@@ -3,7 +3,7 @@ import styles from "../Main.module.css";
 
 interface Props {
   transaction: Transaction;
-  deleteTransaction: DeleteTransaction;
+  deleteTransaction: HandleDeleteTransaction;
 }
 
 export default function Transaction({

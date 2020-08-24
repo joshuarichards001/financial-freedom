@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 import styles from "../Main.module.css";
 
 interface Props {
-  addTransaction: AddTransaction;
+  addTransaction: HandleAddTransaction;
 }
 
 export default function AddTransaction({
