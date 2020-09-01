@@ -20,7 +20,7 @@ export default function TransactionList({transactionList, deleteTransaction}: Pr
           </tr>
         </thead>
         <tbody>
-          {transactionList.reverse().map(transaction => (
+          {transactionList.map(transaction => (
             <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction}/>  
           ))}
         </tbody>
