@@ -35,7 +35,7 @@ export default function PieChart({transactionList}: Props): ReactElement {
     <div>
       <Chart
         width={'400px'}
-        height={'200px'}
+        height={'280px'}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}
         data={[

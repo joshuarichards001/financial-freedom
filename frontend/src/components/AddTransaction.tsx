@@ -87,7 +87,6 @@ export default function AddTransaction({ addTransaction }: Props): ReactElement 
           onClick={(e) => {
             e.preventDefault();
             addTransaction(income, amount, category);
-            setIncome(false);
             setAmount(0.0);
             setCategory("");
           }}
