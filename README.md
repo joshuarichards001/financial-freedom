@@ -39,11 +39,8 @@ Then to run this application you will need to perform the following in two separ
 1. In the first terminal go into backend ```[cd backend]``` and run ```[python3 manage.py runserver]```
 2. In the second terminal go into frontend ```[cd frontend]``` and run ```[npm start]```
 
-
 ## Application in Action
 
 ![Full Tour](demo-images/dashboard-vid.gif)
 
 ![Django API](demo-images/api-layout.png)
-
-
