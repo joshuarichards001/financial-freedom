@@ -10,11 +10,15 @@ It is made from a variety of technologies including:
 - Django REST Framework for the server side.
 - Python for the server side language
 
-It currently has quite simple functionality of:
+It currently has the functionality of:
 
 - Adding a transaction
 - Deleting a transaction
 - Auto updating your balance based on the sum of the transactions in your account
+- Displaying Pie Charts that show
+  - Income vs Expenses
+  - Expense Category Comparison
+- A budget where you set how much you want to spend on a category and it will compare it to how much you've actually spent on that category.
 
 I will be expanding the functionality in the future.
 
@@ -36,7 +40,5 @@ Then to run this application you will need to perform the following in two separ
 Here are some screenshots to show how it looks.
 
 ![Expense Input](demo-images/expense-input.png)
-
-![Income Input](demo-images/income-input.png)
 
 ![Django API](demo-images/api-layout.png)
