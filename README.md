@@ -1,14 +1,15 @@
 # Full Stack Budgeting Web Application
 
-This project was built independently without following a strict tutorial.
+![Final Pic](demo-images/dashboard.png)
 
-It is made from a variety of technologies including:
+This project was built using a variety of technologies including:
 
 - React for the frontend framework.
 - Typescript for the Javascript syntax.
-- Custom CSS for the styling
+- Custom CSS for the styling.
 - Django REST Framework for the server side.
-- Python for the server side language
+- Python for the server side language.
+- SQLite for the database.
 
 It currently has the functionality of:
 
@@ -40,8 +41,8 @@ Then to run this application you will need to perform the following in two separ
 
 Here are some screenshots to show how it looks.
 
-![Full Tour](demo-images/functionality.gif)
-
-![Expense Input](demo-images/dashboard.png)
+![Full Tour](demo-images/dashboard-vid.gif)
 
 ![Django API](demo-images/api-layout.png)
+
+
