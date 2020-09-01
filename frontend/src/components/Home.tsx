@@ -21,10 +21,12 @@ export default function Home() {
     e.preventDefault();
     setShowTransactions(!showTransactions);
   };
+  
   const onDataClick = (e) => {
     e.preventDefault();
     setShowData(!showData);
   };
+
   const onBudgClick = (e) => {
     e.preventDefault();
     setShowBudget(!showBudget);

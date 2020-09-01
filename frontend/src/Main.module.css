@@ -60,6 +60,7 @@ li a {
   text-align: center;
   padding: 14px 14px 20px 20px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 li a:hover {

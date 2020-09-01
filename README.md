@@ -40,6 +40,8 @@ Then to run this application you will need to perform the following in two separ
 
 Here are some screenshots to show how it looks.
 
+![Full Tour](demo-images/functionality.gif)
+
 ![Expense Input](demo-images/dashboard.png)
 
 ![Django API](demo-images/api-layout.png)
