@@ -8,9 +8,36 @@ body {
   background-color: #eeeeee;
 }
 
+html,
+body {
+ height: 100%;
+ position: relative;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-left: 90px;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  height: 610px;
+  width: 450px;
+}
+
 
 
 /* Header */
+.header {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .headerList {
   list-style-type: none;
   margin: 0;
@@ -39,14 +66,6 @@ li a:hover {
   background-color: #111;
 }
 
-.container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 20px 100px;
-  float: left;
-}
-
 
 
 /* Data visualisation */
@@ -65,6 +84,8 @@ li a:hover {
   margin: 4px 2px;
   padding: 2px;
   border-radius: 4px;
+  border-width: 2px;
+  border-color: black;
 }
 
 .buttonStyle {
@@ -85,12 +106,35 @@ li a:hover {
 
 
 /* Transactions */
-table {
-  margin: 20px 0px;
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.transactionTableDiv {
+  overflow:hidden;
+  overflow-y: scroll;
+  height: 440px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #111;
+  border-width: 2px;
+  margin: 20px 0 0 0;
+}
+
+.categoryTableDiv {
+  overflow:hidden;
+  overflow-y: scroll;
   border-style: solid;
   border-color: #111;
   border-width: 2px;
+  border-radius: 5px;
+  margin: 20px 0 0 0;
+}
+
+table {
   border-collapse: collapse;
+  text-align: left;
+  position: relative;
   width: 100%;
 }
 
@@ -99,17 +143,20 @@ th, td {
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: #eeeeee}
-tr:hover {background-color:#dddddd;}
-
 th {
   background-color: #aaaaaa;
+  position: sticky;
+  top: 0;
 }
 
 td {
   cursor: pointer;
 }
 
+tr:nth-child(even){background-color: #eeeeee}
+tr:hover {background-color:#dddddd;}
+
+/* Transaction Delete Button */
 .deleteButton {
   border: none;
   outline: none;
@@ -122,4 +169,25 @@ td {
 
 .deleteButton:hover {
   filter: brightness(90%);
+}
+
+.footer {
+  align-content: center;
+  display: flex;
+  margin: 10px 100px;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
+  width: 480px;
+  padding: 10px 0 10px 0;
+  position: relative;
+}
+
+.footer > p, a {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.footer > p {
+  line-height: 30px;
 }

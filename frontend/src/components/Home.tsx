@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import TransactionList from "./TransactionList";
 import AddTransaction from "./AddTransaction";
 import Header from "./Header";
-import PieChart from "./PieChart";
+import Balance from "./Balance";
+import FlowPieChart from "./FlowPieChart";
+import CategoryPieChart from "./CategoryPieChart"
+import CategoryList from "./CategoryList"
 import Footer from "./Footer";
-import axios from "axios";
 import styles from "../Main.module.css";
 import { getTransactions, addTransaction, deleteTransaction } from './API'
 
@@ -43,19 +45,32 @@ export default function Home() {
   }
 
   return (
-    <body>
-      <div>
-        <Header />
+    <div className={styles.pageContent}>
+      <div className={styles.header}>
+          <Header />
       </div>
-      <div className={styles.container}>
-        <PieChart transactionList={transactionList} />
-        <AddTransaction addTransaction={handleAddTransaction} />
-        <TransactionList
-          transactionList={transactionList}
-          deleteTransaction={handleDeleteTransaction}
-        />
-        <Footer />
+      <div className={styles.content}>
+        <div className={styles.container}>
+          <Balance transactionList={transactionList} />
+          <AddTransaction addTransaction={handleAddTransaction} />
+          <TransactionList
+            transactionList={transactionList}
+            deleteTransaction={handleDeleteTransaction}
+          />
+        </div>
+        <div>
+          <div className={styles.container}>
+            <h2>Data</h2>
+            <FlowPieChart transactionList={transactionList} />
+            <CategoryPieChart transactionList={transactionList} />
+          </div>
+        </div>
+        <div className={styles.container}>
+          <h2>Budget</h2>
+          <CategoryList transactionList={transactionList}/>
+        </div>
       </div>
-    </body>
+      <Footer />
+    </div>
   );
 }

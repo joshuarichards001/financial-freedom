@@ -7,7 +7,7 @@ interface Props {
 }
 type CalculateTotal = (transactionList: Transaction[]) => string;
 
-export default function PieChart({ transactionList }: Props): ReactElement {
+export default function Balance({ transactionList }: Props): ReactElement {
 
   const calculateTotal: CalculateTotal = (transactionList: Transaction[]) => {
     var total: number = 0.0;

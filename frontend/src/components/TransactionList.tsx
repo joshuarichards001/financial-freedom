@@ -10,17 +10,21 @@ interface Props {
 
 export default function TransactionList({transactionList, deleteTransaction}: Props): ReactElement {
   return (
-    <div>
-      <table className={styles.transactionList}>   
-        <tr>
-          <th>Category</th>
-          <th>Amount</th>
-          <th></th>
-        </tr>
-        {transactionList.map(transaction => (
-          <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction}/>  
-        ))}
-    </table>
+    <div className={styles.transactionTableDiv}>
+      <table>   
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {transactionList.reverse().map(transaction => (
+            <Transaction key={transaction.id} transaction={transaction} deleteTransaction={deleteTransaction}/>  
+          ))}
+        </tbody>
+      </table>
     </div>
     
   )
