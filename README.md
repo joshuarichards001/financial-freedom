@@ -39,6 +39,6 @@ Then to run this application you will need to perform the following in two separ
 
 Here are some screenshots to show how it looks.
 
-![Expense Input](demo-images/expense-input.png)
+![Expense Input](demo-images/dashboard.png)
 
 ![Django API](demo-images/api-layout.png)
