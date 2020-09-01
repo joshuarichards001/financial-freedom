@@ -2,7 +2,7 @@
 
 ![Final Pic](demo-images/dashboard.png)
 
-This project was built using a variety of technologies including:
+## Technologies
 
 - React for the frontend framework.
 - Typescript for the Javascript syntax.
@@ -11,8 +11,9 @@ This project was built using a variety of technologies including:
 - Python for the server side language.
 - SQLite for the database.
 
-It currently has the functionality of:
+## Current Functionality
 
+- Simple hard coded Login Page
 - Adding a transaction
 - Deleting a transaction
 - Auto updating your balance based on the sum of the transactions in your account
@@ -24,7 +25,7 @@ It currently has the functionality of:
 
 I will be expanding the functionality in the future.
 
-In order to setup the code on your computer perform the following:
+## Set-up on your Machine
 
 1. Clone the project to your machine ```[git clone https://github.com/joshuarichards001/budgeting-web-app.git]```
 2. Navigate into the diretory ```[cd budgeting-web-app]```
@@ -39,7 +40,7 @@ Then to run this application you will need to perform the following in two separ
 2. In the second terminal go into frontend ```[cd frontend]``` and run ```[npm start]```
 
 
-Here are some screenshots to show how it looks.
+## Application in Action
 
 ![Full Tour](demo-images/dashboard-vid.gif)
 
