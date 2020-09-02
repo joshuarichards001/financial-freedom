@@ -15,7 +15,7 @@ export default function LoginForm({}: Props): ReactElement {
   const [showFailure, setShowFailure] = useState(false);
 
   const onLoginClick = () => {
-    if (userName === "user" && password === "password") {
+    if (userName === "f" && password === "f") {
       user.setIsLoggedIn(true);
       setShowFailure(true);
     } else {

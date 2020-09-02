@@ -8,7 +8,7 @@ import CategoryPieChart from "./CategoryPieChart";
 import CategoryList from "./CategoryList";
 import Footer from "./Footer";
 import styles from "../Main.module.css";
-import { getTransactions, addTransaction, deleteTransaction } from "./API";
+import { getTransactions, addTransaction, deleteTransaction } from "../actions/API";
 
 export default function Home() {
   const [transactionList, setTransactionList] = useState<Transaction[]>([]);
