@@ -3,8 +3,8 @@ POST http://127.0.0.1:8000/auth/users/
 Content-Type: application/json
 
 {
-    "email": "test@gmail.com",
-    "username": "testUser",
+    "email": "test1@gmail.com",
+    "username": "testUser1",
     "password": "testUserPass"
 }
 

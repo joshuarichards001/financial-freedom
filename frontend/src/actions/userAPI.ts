@@ -3,9 +3,17 @@ import { tokenConfig } from "./transactionAPI"
 
 const baseUrl: string = "http://localhost:8000";
 
-export const createUser = async (username: string, password: string, email: string): Promise<AxiosResponse<ApiDataType>> => {
+export const registerUser = async (email: string, username: string, password: string): Promise<AxiosResponse<ApiDataType>> => {
   try {
-    const login: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/auth/users/",{"email": email, "username": username, "password": password});
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    const body = JSON.stringify({ email, username, password });
+    console.log(body)
+    console.log(config)
+    const login: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/auth/users/", body, config);
     return login;
   } catch (error) {
     throw new Error(error);
