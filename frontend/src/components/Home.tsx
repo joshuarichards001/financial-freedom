@@ -9,7 +9,7 @@ import CategoryList from "./CategoryList";
 import Footer from "./Footer";
 import styles from "../Main.module.css";
 import { getTransactions, addTransaction, deleteTransaction } from "../actions/transactionAPI";
-import { userDetails } from "../actions/userAPI";
+import { userDetails, logoutUser } from "../actions/userAPI";
 
 interface Props {
   token: string
@@ -35,6 +35,15 @@ export default function Home({token}: Props) {
   const onBudgClick = (e) => {
     e.preventDefault();
     setShowBudget(!showBudget);
+  };
+
+  const onLogoutClick = (e) => {
+    e.preventDefault();
+    if (window.confirm('Are you sure you want to log out of this account?')) {
+      logoutUser(token)
+      localStorage.clear();
+      window.location.reload(false); 
+    } 
   };
 
   useEffect(() => {
@@ -94,6 +103,7 @@ export default function Home({token}: Props) {
           transClick={onTransClick}
           dataClick={onDataClick}
           budgClick={onBudgClick}
+          logoutClick={onLogoutClick}
         />
       </div>
       <div className={styles.content}>

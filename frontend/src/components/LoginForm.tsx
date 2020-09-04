@@ -16,9 +16,6 @@ export default function LoginForm({onLoginClick}: Props): ReactElement {
       <div className={styles.header}>
         <ul className={styles.headerList}>
           <li className={styles.headerLogo}><a>Financial Freedom</a></li>
-          <li className={styles.headerItem}><a>Budget</a></li>
-          <li className={styles.headerItem}><a>Data</a></li>
-          <li className={styles.headerItem}><a>Transactions</a></li>
         </ul>
       </div>
       <div className={styles.content}>
@@ -44,9 +41,18 @@ export default function LoginForm({onLoginClick}: Props): ReactElement {
               onLoginClick(userName, password);
             }}
             className={styles.buttonStyle}
-            style={{backgroundColor: "#aaaaaa"}}
+            style={{backgroundColor: "#aaaaaa", marginBottom: "10px"}}
           >
             Login
+          </button>
+          <button 
+          className={styles.buttonStyle} 
+          style={{backgroundColor: "#eeeeee"}}
+          onClick = {(e) => {
+            e.preventDefault();
+            onLoginClick("testUser", "testUserPass");
+          }}>
+              Login As Guest
           </button>
         </form>
       </div>

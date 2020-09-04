@@ -27,9 +27,9 @@ export const loginUser = async (username: string, password: string): Promise<Axi
   }
 };
 
-export const logoutUser = async (): Promise<AxiosResponse<ApiDataType>> => {
+export const logoutUser = async (token: string): Promise<AxiosResponse<ApiDataType>> => {
   try {
-    const login: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/auth/token/logout/");
+    const login: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/auth/token/logout/", tokenConfig(token));
     return login;
   } catch (error) {
     throw new Error(error);

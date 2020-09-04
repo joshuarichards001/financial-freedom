@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
     "email": "test@gmail.com",
-    "username": "f",
-    "password": "f"
+    "username": "testUser",
+    "password": "testUserPass"
 }
 
 ###
@@ -23,7 +23,8 @@ Content-Type: application/json
 
 # Logout User
 POST http://127.0.0.1:8000/auth/token/logout/
-Authorization: Token a8d42aed7355e14e47a689b1cb19a1086a508437
+Content-Type: 'application/json'
+Authorization: Token c0a53b2e3ef6dfb555f9d1df6fcafa029f9c27b6
 
 ###
 
