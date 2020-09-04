@@ -23,7 +23,7 @@
 - A budget where you set how much you want to spend on a category and it will compare it to how much you've actually spent on that category.
 - Can plug and play with the sections that you want. If you click on the NavBar items it will remove/add them to the screen.
 - Full user support, can create a username and password to have your own transaction list
-- 
+- Can login, logout and register a user
 
 I will be expanding the functionality in the future.
 
