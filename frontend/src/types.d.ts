@@ -3,6 +3,13 @@ interface Transaction {
   income: boolean,
   amount: number,
   category: string,
+  owner_id: number,
+}
+
+interface userInfo {
+  email: string,
+  id: number,
+  username: string
 }
 
 type HandleAddTransaction = (income: boolean, amount: number, category: string) => void;

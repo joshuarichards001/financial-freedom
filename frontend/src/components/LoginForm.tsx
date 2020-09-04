@@ -4,24 +4,12 @@ import styles from "../Main.module.css";
 import Header from './Header';
 
 interface Props {
-  
+  onLoginClick: (userName: string, password: string) => void | undefined
 }
 
-export default function LoginForm({}: Props): ReactElement {
+export default function LoginForm({onLoginClick}: Props): ReactElement {
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const user = useContext(UserContext);
-
-  const [showFailure, setShowFailure] = useState(false);
-
-  const onLoginClick = () => {
-    if (userName === "f" && password === "f") {
-      user.setIsLoggedIn(true);
-      setShowFailure(true);
-    } else {
-      setShowFailure(true);
-    }
-  };
 
   return (
     <div>
@@ -34,7 +22,7 @@ export default function LoginForm({}: Props): ReactElement {
         </ul>
       </div>
       <div className={styles.content}>
-        <div className={styles.loginForm}>
+        <form className={styles.loginForm}>
           <h1 style={{paddingBottom: "20px"}}>Login</h1>
           <label>User Name</label>
           <input
@@ -51,16 +39,16 @@ export default function LoginForm({}: Props): ReactElement {
             type="password"
           />
           <button
-            onClick={onLoginClick}
+            onClick = {(e) => {
+              e.preventDefault();
+              onLoginClick(userName, password);
+            }}
             className={styles.buttonStyle}
             style={{backgroundColor: "#aaaaaa"}}
           >
             Login
           </button>
-          {showFailure ? <div style={{color: "red"}}>
-            <p>No user goes by those details</p>
-          </div> : null}
-        </div>
+        </form>
       </div>
     </div>
   );

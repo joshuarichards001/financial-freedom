@@ -8,11 +8,16 @@ import CategoryPieChart from "./CategoryPieChart";
 import CategoryList from "./CategoryList";
 import Footer from "./Footer";
 import styles from "../Main.module.css";
-import { getTransactions, addTransaction, deleteTransaction } from "../actions/API";
+import { getTransactions, addTransaction, deleteTransaction } from "../actions/transactionAPI";
+import { userDetails } from "../actions/userAPI";
 
-export default function Home() {
+interface Props {
+  token: string
+}
+
+export default function Home({token}: Props) {
+  const [userId, setUserId] = useState(-1)
   const [transactionList, setTransactionList] = useState<Transaction[]>([]);
-
   const [showTransactions, setShowTransactions] = useState(true);
   const [showData, setShowData] = useState(true);
   const [showBudget, setShowBudget] = useState(true);
@@ -33,14 +38,29 @@ export default function Home() {
   };
 
   useEffect(() => {
-    handleFetchTransactions();
+    handleFetchUserData();
   }, []);
+
+  useEffect(() => {
+    if(userId !== -1) handleFetchTransactions()
+  }, [userId])
+
+  // Gets the users data
+  const handleFetchUserData = () => {
+    userDetails(token)
+      .then(({ data }: userInfo | any) => {
+        setUserId(data.id);
+      })
+      .catch((err: Error) => console.log(err));
+  };
 
   // Gets a list of all transactions from API
   const handleFetchTransactions: HandleFetchTransactions = () => {
-    getTransactions()
+    getTransactions(token)
       .then(({ data }: Transaction[] | any) => {
-        setTransactionList(data.reverse());
+        setTransactionList(data.reverse().filter(transaction => {
+          return transaction.owner_id === userId
+        }));
       })
       .catch((err: Error) => console.log(err));
   };
@@ -51,7 +71,7 @@ export default function Home() {
     amount: number,
     category: string
   ) => {
-    addTransaction(income, amount, category)
+    addTransaction(token, income, amount, category)
       .then(() => {
         handleFetchTransactions();
       })
@@ -60,7 +80,7 @@ export default function Home() {
 
   // Deletes the given transaction from the API
   const handleDeleteTransaction: HandleDeleteTransaction = (id: string) => {
-    deleteTransaction(id)
+    deleteTransaction(token, id)
       .then(() => {
         handleFetchTransactions();
       })

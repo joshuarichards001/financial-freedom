@@ -4,4 +4,4 @@ from .models import Transaction
 class TransactionSerializer(serializers.HyperlinkedModelSerializer):
   class Meta:
     model = Transaction
-    fields = ('id', 'income', 'amount', 'category')
+    fields = ('id', 'income', 'amount', 'category', 'owner_id')
