@@ -1,6 +1,6 @@
 # Full Stack Budgeting Web Application
 
-![Final Pic](demo-images/dashboard.png)
+![Final Pic](demo-images/dashboard-pic.png)
 
 ## Technologies
 
@@ -43,7 +43,7 @@ Then to run this application you will need to perform the following in two separ
 
 ## Application in Action
 
-![Full Tour](demo-images/dashboard.png)
-![Login](demo-images/login.png)
-![Hide](demo-images/hiddencard.png)
+![Full Tour](demo-images/dashboard-pic.png)
+![Login](demo-images/login-pic.png)
+![Hide](demo-images/hiddencard-pic.png)
 ![Django API](demo-images/api-layout.png)
