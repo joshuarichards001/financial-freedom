@@ -6,7 +6,7 @@ interface Props {}
 export default function Footer({}: Props): ReactElement {
   return (
     <div className={styles.footer}>
-      <p>Developed by Joshua Richards</p>
+      <p>Developed by Josh Richards</p>
       <a target="_blank" href="https://github.com/joshuarichards001">
         <svg
           xmlns="http://www.w3.org/2000/svg"

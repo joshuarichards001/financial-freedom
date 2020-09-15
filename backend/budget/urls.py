@@ -1,12 +1,10 @@
 from django.urls import include, path
 from rest_framework import routers
-from . import views
+from .views import TransactionViewSet
+
 
 router = routers.DefaultRouter()
-router.register(r'transactions', views.TransactionViewSet)
-
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
+router.register(r'transactions', TransactionViewSet, basename='Transaction')
 urlpatterns = [
     path('', include(router.urls)),
 ]

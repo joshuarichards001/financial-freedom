@@ -1,5 +1,5 @@
 * {
-  font-family: Futura;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -11,7 +11,7 @@ body {
 html,
 body {
  height: 100%;
- position: relative;
+ overflow-x: hidden;
 }
 
 .content {
@@ -23,10 +23,11 @@ body {
 
 .container {
   background-color: #ffffff;
+  position: relative;
   border-radius: 10px;
   padding: 15px;
   margin: 10px;
-  height: 610px;
+  height: 635px;
   width: 450px;
 }
 
@@ -36,18 +37,60 @@ body {
 .header {
   width: 100%;
   margin-bottom: 10px;
+  position: relative;
+  z-index: 9999;
 }
 
-.headerList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0 80px;
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 0 80px;
   overflow: hidden;
   background-color: #333;
+  align-items: center;
 }
 
 .headerLogo {
   float: left;
+  letter-spacing: 1px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px 20px 20px;
+  cursor: default;
+}
+
+.burger {
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin: 5px;
+}
+
+.headerList {
+  list-style-type: none;
+  background-color: #333;
+  position: absolute;
+  right: -100%;
+  top: 59px;
+  display: flex;
+  flex-direction: column;
+  transition: 850ms;
+}
+
+.headerListActive {
+  list-style-type: none;
+  background-color: #333;
+  position: absolute;
+  right: 0;
+  transition: 350ms;
+  top: 59px;
+  display: flex;
+  flex-direction: column;
 }
 
 .headerItem {
@@ -57,10 +100,12 @@ body {
 li a {
   display: block;
   color: white;
-  text-align: center;
-  padding: 14px 14px 20px 20px;
+  text-align: left;
+  padding: 14px 40px 20px 20px;
   text-decoration: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 li a:hover {
@@ -77,7 +122,7 @@ li a:hover {
   border-radius: 10px;
   padding: 50px;
   margin: 10px;
-  height: 450px;
+  height: 550px;
   width: 250px;
 }
 
@@ -104,7 +149,6 @@ li a:hover {
 }
 
 .buttonStyle {
-  text-align: center;
   border-radius: 4px;
   color: black;
   font-size: 16px;
@@ -112,6 +156,9 @@ li a:hover {
   padding: 2px;
   cursor: pointer;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .buttonStyle:hover {
@@ -164,10 +211,6 @@ th {
   top: 0;
 }
 
-td {
-  cursor: pointer;
-}
-
 tr:nth-child(even){background-color: #eeeeee}
 tr:hover {background-color:#dddddd;}
 
@@ -200,9 +243,11 @@ tr:hover {background-color:#dddddd;}
 
 .footer > p, a {
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 .footer > p {
   line-height: 30px;
 }
+
+svg > g > g:last-child { pointer-events: none }

@@ -24,21 +24,21 @@ Content-Type: application/json
 # Logout User
 POST http://127.0.0.1:8000/auth/token/logout/
 Content-Type: 'application/json'
-Authorization: Token c0a53b2e3ef6dfb555f9d1df6fcafa029f9c27b6
+Authorization: Token bdfdd94a38c4210ac996f4a51fd4caf2de70abf1
 
 ###
 
 # Current User
 GET http://127.0.0.1:8000/auth/users/me/
 Content-Type: 'application/json'
-Authorization: Token 8f2434340af7b833b75ceb9517aa012ccc108135
+Authorization: Token 70abf301a60bd23d631ccc0ca6238a104f398a12
 
 ###
 
 # Current User Transactions
 GET http://127.0.0.1:8000/transactions/
 Content-Type: 'application/json'
-Authorization: Token 8f2434340af7b833b75ceb9517aa012ccc108135
+Authorization: Token 70abf301a60bd23d631ccc0ca6238a104f398a12
 
 ###
 

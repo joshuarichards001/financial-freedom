@@ -1,3 +1,4 @@
+
 export const INCOME_CATEGORIES: string[] = [
   '',
   'Paycheck',
@@ -25,3 +26,5 @@ export const EXPENSE_CATEGORIES: string[] = [
   'Entertainment',
   'Other'
 ];
+
+export const baseUrl: string = "https://financial-freedom-api.herokuapp.com"//"http://127.0.0.1:8000"

@@ -1,10 +1,11 @@
-import React, { ReactElement, useState, useContext } from "react";
-import { UserContext } from "./App";
+import React, { ReactElement, useState } from "react";
 import styles from "../Main.module.css";
-import Header from "./Header";
+import GoogleLogin from 'react-google-login';
 
 interface Props {
+  loading: boolean;
   onLoginClick: (userName: string, password: string) => void | undefined;
+  onGoogleClick: (response: any) => Promise<void>
   onRegisterClick: (
     email: string,
     userName: string,
@@ -15,6 +16,8 @@ interface Props {
 export default function LoginForm({
   onLoginClick,
   onRegisterClick,
+  onGoogleClick,
+  loading,
 }: Props): ReactElement {
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -23,13 +26,9 @@ export default function LoginForm({
 
   return (
     <div>
-      <div className={styles.header}>
-        <ul className={styles.headerList}>
-          <li className={styles.headerLogo}>
-            <a>Financial Freedom</a>
-          </li>
-        </ul>
-      </div>
+      <nav>
+        <li className={styles.headerLogo}>Financial Freedom</li>
+      </nav>
       <div className={styles.content}>
         <form className={styles.loginForm}>
           {showRegister ? (
@@ -37,9 +36,6 @@ export default function LoginForm({
           ) : (
             <h1 style={{ paddingBottom: "20px" }}>Login</h1>
           )}
-          <p style={{ color: "#aaaaaa", marginBottom: "30px" }}>
-            Isn't super secure so just use some dummy info
-          </p>
           {showRegister ? <label>Email</label> : null}
           {showRegister ? (
             <input
@@ -79,7 +75,11 @@ export default function LoginForm({
           <button
             className={styles.buttonStyle}
             onClick={(e) => {
-              if (!showRegister) {
+              if (
+                (!showRegister || email.length,
+                userName.length,
+                password.length === 0)
+              ) {
                 e.preventDefault();
                 setShowRegister(true);
               } else {
@@ -100,7 +100,58 @@ export default function LoginForm({
           >
             Login As Guest
           </button>
+          <GoogleLogin
+            clientId="551797952328-07qc03g60octqej7u462de4vbgtfkbm9.apps.googleusercontent.com"
+            buttonText="Login with Google"
+            onSuccess={onGoogleClick}
+            onFailure={onGoogleClick}
+          />
+          {loading ? (
+            <p style={{ marginTop: "10px" }}>Content Is Loading, this may take a minute...</p>
+          ) : null}
         </form>
+        <div className={styles.loginForm} style={{width: "300px"}}>
+          <h1>About</h1>
+          <p style={{ marginTop: "20px" }}>
+            A budgeting app that was built to develop my skills in 
+            full-stack web development. It is built using:
+          </p>
+          <div style={{ marginTop: "20px", display: "flex" }}>
+            <div style={{ marginRight: "50px"}}>
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>CSS</li>
+              <li>Netlify</li>
+            </div>
+            <div>
+              <li>Python</li>
+              <li>Django</li>
+              <li>SQLite</li>
+              <li>Heroku</li>
+            </div>
+          </div>
+          <p style={{ marginTop: "20px" }}>
+            You can either log in as a guest, register yourself, login with google, or use some existing dummy users like:
+          </p>
+          <table style={{ marginTop: "20px", width: "100px" }}>   
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Password</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>user1</td>
+                <td>pass</td>
+              </tr>
+              <tr>
+                <td>user2</td>
+                <td>pass</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

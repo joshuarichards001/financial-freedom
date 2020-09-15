@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-
-const baseUrl: string = "http://localhost:8000";
+import { baseUrl } from "../Constants"
 
 export const getTransactions = async (token: string): Promise<AxiosResponse<ApiDataType>> => {
   try {
