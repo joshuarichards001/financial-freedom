@@ -31,6 +31,8 @@ I will continue to expand the functionality in the future.
 
 ## Set-up on your Machine
 
+(To get it running entirely locally you will need to change the baseUrl in Constants.ts to 127.0.0.1:8000 in the frontend otherwise the frontend to connect to the remote API)
+
 1. Clone the project to your machine ```[git clone https://github.com/joshuarichards001/budgeting-web-app.git]```
 2. Navigate into the directory ```[cd budgeting-web-app]```
 3. Navigate into the backend directory ```[cd backend]```
