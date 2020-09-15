@@ -31,7 +31,7 @@ I will continue to expand the functionality in the future.
 
 ## Set-up on your Machine
 
-(To get it running entirely locally you will need to change the baseUrl in Constants.ts to 127.0.0.1:8000 in the frontend otherwise the frontend to connect to the remote API)
+*(To get it running entirely locally you will need to change the baseUrl in Constants.ts to 127.0.0.1:8000 in the frontend otherwise the frontend to connect to the remote API)*
 
 1. Clone the project to your machine ```[git clone https://github.com/joshuarichards001/budgeting-web-app.git]```
 2. Navigate into the directory ```[cd budgeting-web-app]```
@@ -59,5 +59,5 @@ Here is the dashboard that is the core page of the application
 A showcase of the "Hot swap sections" functionality
 ![Hide](demo-images/hiddencard-pic.png)
 
-A showcase of the django API
+A showcase of the Django API
 ![Django API](demo-images/api-layout.png)
