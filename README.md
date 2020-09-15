@@ -1,6 +1,6 @@
 # Financial Freedom
 
-[Check out the project here!](https://financial-freedom.netlify.app/)
+[Check out the project live here!](https://financial-freedom.netlify.app/)
 ![Final Pic](demo-images/dashboard-pic.png)
 A full stack budgeting application that manages users and their transactions.
 
@@ -24,6 +24,7 @@ A full stack budgeting application that manages users and their transactions.
 - A budget of what you want to spend on each category
 - Hot swap sections to customise the user interface
 - User support with login, logout and register functionality
+- Storing users tokens locally to remove the need to login every time
 - Can sign in using your Google Account
 
 I will continue to expand the functionality in the future.
@@ -44,7 +45,14 @@ Then to run this application you will need to perform the following in two separ
 
 ## Application in Action
 
-![Full Tour](demo-images/dashboard-pic.png)
+Here is the login page that a new user is greeted with.
 ![Login](demo-images/login-pic.png)
+
+Here is the dashboard that is the core page of the application
+![Full Tour](demo-images/dashboard-pic.png)
+
+A showcase of the "Hot swap sections" functionality
 ![Hide](demo-images/hiddencard-pic.png)
+
+A showcase of the django API
 ![Django API](demo-images/api-layout.png)
