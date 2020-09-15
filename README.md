@@ -32,11 +32,14 @@ I will continue to expand the functionality in the future.
 ## Set-up on your Machine
 
 1. Clone the project to your machine ```[git clone https://github.com/joshuarichards001/budgeting-web-app.git]```
-2. Navigate into the diretory ```[cd budgeting-web-app]```
-3. Source the virtual environment ```[pipenv shell]```
-4. Install the dependencies ```[pipenv install]```
-5. Navigate into the frontend directory ```[cd frontend]```
-6. Install the dependencies ```[npm install]```
+2. Navigate into the directory ```[cd budgeting-web-app]```
+3. Navigate into the backend directory ```[cd backend]```
+4. Install virtualenv if you haven't already ```[pip install virtualenv]```
+5. Create the virtual environment ```[virtualenv env]```
+6. Activate the virtual environment ```[source env/bin/activate]```
+7. Install the dependencies ```[pip install -r requirements.txt]```
+8. Navigate into the frontend directory ```[cd ../frontend]```
+9. Install the dependencies ```[npm install]```
 
 Then to run this application you will need to perform the following in two separate terminals:
 
