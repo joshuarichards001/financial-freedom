@@ -1,28 +1,29 @@
-# Full Stack Budgeting Web Application
+# Financial Freedom
 
+[Check out the project here!](https://financial-freedom.netlify.app/)
 ![Final Pic](demo-images/dashboard-pic.png)
+A full stack budgeting application that manages users and their transactions.
 
 ## Technologies
 
-- React for the frontend framework.
-- Typescript for the Javascript syntax.
-- Custom CSS for the styling.
-- Django REST Framework for the server side.
-- Python for the server side language.
-- SQLite for the database.
+- **React** (for the frontend framework)
+- **Typescript** (for the Javascript syntax)
+- **CSS** (for the styling)
+- **Python** (for the server side language)
+- **Django** (for the server side framework)
+- **SQLite** (for the database)
 
 ## Current Functionality
 
 - Adding a transaction
 - Deleting a transaction
-- Auto updating your balance based on the sum of the transactions in your account
-- Displaying Pie Charts that show
+- Showing your balance
+- Pie Charts that show
   - Income vs Expenses
   - Expense Category Comparison
-- A budget where you set how much you want to spend on a category and it will compare it to how much you've actually spent on that category.
-- Can plug and play with the sections that you want. If you click on the NavBar items it will remove/add them to the screen.
-- Full user support, can create a username and password to have your own transaction list
-- Can login, logout and register a user
+- A budget of what you want to spend on each category
+- Hot swap sections to customise the user interface
+- User support with login, logout and register functionality
 - Can sign in using your Google Account
 
 I will continue to expand the functionality in the future.
