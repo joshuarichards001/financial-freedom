@@ -149,8 +149,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CORS_ORIGIN_WHITELIST = [
     'https://financial-freedom.netlify.app',
+    'http://localhost:8081',
     'http://localhost:3000',
-    'http://127.0.0.1:3000',
 ]
 
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'

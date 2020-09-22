@@ -45,6 +45,7 @@ function App() {
 
   const onGoogleClick = async (response) => {
     setLoading(true);
+    console.log(response)
     loginSocialUser(response.accessToken)
       .then(({ data }: string | any) => {
         console.log(data.key)

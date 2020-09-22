@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function AddTransaction({ addTransaction }: Props): ReactElement {
-  const expenseColor: string = "#fef5f5";
+  const expenseColor: string = "#ffe6e6";
   const incomeColor: string = "#e5ffe7";
   const categorySelect = useRef<HTMLSelectElement>(null);
   const [income, setIncome] = useState(false);
