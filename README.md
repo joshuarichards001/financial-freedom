@@ -58,6 +58,3 @@ Here is the dashboard that is the core page of the application
 
 A showcase of the "Hot swap sections" functionality
 ![Hide](demo-images/hiddencard-pic.png)
-
-A showcase of the Django API
-![Django API](demo-images/api-layout.png)
