@@ -34,7 +34,7 @@ export default function CategoryList({transactionList}: Props): ReactElement {
   }
 
   return (
-    <div className={styles.categoryTableDiv}>
+    <div className={styles.tableStyle} style={{height: '560px'}}>
       <table>   
         <thead>
           <tr>

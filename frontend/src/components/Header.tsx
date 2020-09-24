@@ -6,6 +6,7 @@ interface Props {
   dataClick: (e: any) => void;
   budgClick: (e: any) => void;
   logoutClick: (e: any) => void;
+
   showTrans: boolean;
   showData: boolean;
   showBudg: boolean;
@@ -16,6 +17,7 @@ export default function Header({
   dataClick,
   budgClick,
   logoutClick,
+
   showTrans,
   showData,
   showBudg,
@@ -25,39 +27,48 @@ export default function Header({
   return (
     <nav>
       <li className={styles.headerLogo}>Financial Freedom</li>
-      <div
-        className={styles.burger}
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        <div />
-        <div />
-        <div />
-      </div>
-      <ul className={open ? styles.headerListActive : styles.headerList}>
-        <li className={styles.headerItem}>
-          <a
-            onClick={transClick}
-            style={{ color: showTrans ? "white" : "grey" }}
+      <div className={styles.headerDropDown}>
+        <div
+          className={styles.dropbtn}
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
           >
-            {showTrans ? showEye() : hideEye()} Transactions
-          </a>
-        </li>
-        <li className={styles.headerItem}>
-          <a onClick={dataClick} style={{ color: showData ? "white" : "grey" }}>
-            {showData ? showEye() : hideEye()} Data
-          </a>
-        </li>
-        <li className={styles.headerItem}>
-          <a onClick={budgClick} style={{ color: showBudg ? "white" : "grey" }}>
-            {showBudg ? showEye() : hideEye()} Budget
-          </a>
-        </li>
-        <li className={styles.headerItem} style={{ marginTop: "30px" }}>
-          <a onClick={logoutClick}>Log Out</a>
-        </li>
-      </ul>
+            <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="white"/>
+          </svg>
+        </div>
+        {open ? (
+          <div className={styles.headerContent}>
+            <a
+              onClick={transClick}
+              style={{ color: showTrans ? "white" : "grey" }}
+            >
+              {showTrans ? showEye() : hideEye()} Transactions
+            </a>
+            <a
+              onClick={dataClick}
+              style={{ color: showData ? "white" : "grey" }}
+            >
+              {showData ? showEye() : hideEye()} Data
+            </a>
+            <a
+              onClick={budgClick}
+              style={{ color: showBudg ? "white" : "grey" }}
+            >
+              {showBudg ? showEye() : hideEye()} Budget
+            </a>
+            <a onClick={logoutClick} style={{ marginTop: "30px" }}>
+              Log Out
+            </a>
+          </div>
+        ) : null}
+      </div>
     </nav>
   );
 }

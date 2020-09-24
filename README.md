@@ -31,22 +31,22 @@ I will continue to expand the functionality in the future.
 
 ## Set-up on your Machine
 
-*(To get it running entirely locally you will need to change the baseUrl in frontend/src/Constants.ts to 127.0.0.1:8000 otherwise the frontend will connect to the remote API)*
+_(To get it running entirely locally you will need to change the baseUrl in frontend/src/Constants.ts to 127.0.0.1:8000 otherwise the frontend will connect to the remote API)_
 
-1. Clone the project to your machine ```[git clone https://github.com/joshuarichards001/budgeting-web-app.git]```
-2. Navigate into the directory ```[cd budgeting-web-app]```
-3. Navigate into the backend directory ```[cd backend]```
-4. Install virtualenv if you haven't already ```[pip install virtualenv]```
-5. Create the virtual environment ```[virtualenv env]```
-6. Activate the virtual environment ```[source env/bin/activate]```
-7. Install the dependencies ```[pip install -r requirements.txt]```
-8. Navigate into the frontend directory ```[cd ../frontend]```
-9. Install the dependencies ```[npm install]```
+1. Clone the project to your machine `[git clone https://github.com/joshuarichards001/budgeting-web-app.git]`
+2. Navigate into the directory `[cd budgeting-web-app]`
+3. Navigate into the backend directory `[cd backend]`
+4. Install virtualenv if you haven't already `[pip install virtualenv]`
+5. Create the virtual environment `[virtualenv env]`
+6. Activate the virtual environment `[source env/bin/activate]`
+7. Install the dependencies `[pip install -r requirements.txt]`
+8. Navigate into the frontend directory `[cd ../frontend]`
+9. Install the dependencies `[npm install]`
 
 Then to run this application you will need to perform the following in two separate terminals:
 
-1. In the first terminal go into backend ```[cd backend]``` and run ```[python3 manage.py runserver]```
-2. In the second terminal go into frontend ```[cd frontend]``` and run ```[npm start]```
+1. In the first terminal go into backend `[cd backend]` and run `[python3 manage.py runserver]`
+2. In the second terminal go into frontend `[cd frontend]` and run `[npm start]`
 
 ## Application in Action
 

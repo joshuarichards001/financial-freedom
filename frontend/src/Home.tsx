@@ -1,32 +1,49 @@
 import React, { useState, useEffect } from "react";
-import TransactionList from "./TransactionList";
-import AddTransaction from "./AddTransaction";
-import Header from "./Header";
-import Balance from "./Balance";
-import FlowPieChart from "./FlowPieChart";
-import CategoryPieChart from "./CategoryPieChart";
-import CategoryList from "./CategoryList";
-import Footer from "./Footer";
-import styles from "../Main.module.css";
-import { getTransactions, addTransaction, deleteTransaction } from "../actions/transactionAPI";
-import { userDetails, logoutUser } from "../actions/userAPI";
+import TransactionList from "./components/TransactionList";
+import AddTransaction from "./components/AddTransaction";
+import Header from "./components/Header";
+import Balance from "./components/Balance";
+import FlowPieChart from "./components/FlowPieChart";
+import CategoryPieChart from "./components/CategoryPieChart";
+import CategoryList from "./components/CategoryList";
+import Footer from "./components/Footer";
+import styles from "./Main.module.css";
+import {
+  getTransactions,
+  addTransaction,
+  deleteTransaction,
+} from "./actions/transactionAPI";
+import { userDetails, logoutUser } from "./actions/userAPI";
 
 interface Props {
-  token: string
+  token: string;
 }
 
-export default function Home({token}: Props) {
-  const [userId, setUserId] = useState(-1)
+export default function Home({ token }: Props) {
+  const [userId, setUserId] = useState(-1);
   const [transactionList, setTransactionList] = useState<Transaction[]>([]);
+
   const [showTransactions, setShowTransactions] = useState(true);
+  const [showAddTransactions, setShowAddTransactions] = useState(true);
+  const [showBalance, setShowBalance] = useState(true);
   const [showData, setShowData] = useState(true);
   const [showBudget, setShowBudget] = useState(true);
+
+  const onAddTransClick = (e) => {
+    e.preventDefault();
+    setShowAddTransactions(!showAddTransactions);
+  };
 
   const onTransClick = (e) => {
     e.preventDefault();
     setShowTransactions(!showTransactions);
   };
-  
+
+  const onBalanceClick = (e) => {
+    e.preventDefault();
+    setShowBalance(!showBalance);
+  };
+
   const onDataClick = (e) => {
     e.preventDefault();
     setShowData(!showData);
@@ -39,11 +56,11 @@ export default function Home({token}: Props) {
 
   const onLogoutClick = (e) => {
     e.preventDefault();
-    if (window.confirm('Are you sure you want to log out of this account?')) {
-      logoutUser(token)
+    if (window.confirm("Are you sure you want to log out of this account?")) {
+      logoutUser(token);
       localStorage.clear();
-      window.location.reload(false); 
-    } 
+      window.location.reload(false);
+    }
   };
 
   useEffect(() => {
@@ -51,8 +68,8 @@ export default function Home({token}: Props) {
   }, []);
 
   useEffect(() => {
-    if(userId !== -1) handleFetchTransactions()
-  }, [userId])
+    if (userId !== -1) handleFetchTransactions();
+  }, [userId]);
 
   // Gets the users data
   const handleFetchUserData = () => {
@@ -96,7 +113,7 @@ export default function Home({token}: Props) {
 
   return (
     <div>
-      <div className={styles.header}>
+      <div className={styles.headerContainer}>
         <Header
           transClick={onTransClick}
           dataClick={onDataClick}
@@ -107,28 +124,36 @@ export default function Home({token}: Props) {
           showBudg={showBudget}
         />
       </div>
-      <div className={styles.content}>
-        {showTransactions ? <div className={styles.container}>
-          <Balance transactionList={transactionList} />
-          <AddTransaction addTransaction={handleAddTransaction} />
-          <TransactionList
-            transactionList={transactionList}
-            deleteTransaction={handleDeleteTransaction}
-          />
-        </div> : null}
-        {showData ? <div>
+      <div className={styles.contentContainer}>
+        {showTransactions ? (
           <div className={styles.container}>
-            <h2>Data</h2>
-            <FlowPieChart transactionList={transactionList} />
-            <CategoryPieChart transactionList={transactionList} />
+            <Balance transactionList={transactionList} />
+            <AddTransaction addTransaction={handleAddTransaction} />
+            <TransactionList
+              transactionList={transactionList}
+              deleteTransaction={handleDeleteTransaction}
+            />
           </div>
-        </div>: null}
-        {showBudget ? <div className={styles.container}>
-          <h2>Budget</h2>
-          <CategoryList transactionList={transactionList} />
-        </div> : null}
+        ) : null}
+        {showData ? (
+          <div>
+            <div className={styles.container}>
+              <h2>Data</h2>
+              <FlowPieChart transactionList={transactionList} />
+              <CategoryPieChart transactionList={transactionList} />
+            </div>
+          </div>
+        ) : null}
+        {showBudget ? (
+          <div className={styles.container}>
+            <h2>Budget</h2>
+            <CategoryList transactionList={transactionList} />
+          </div>
+        ) : null}
       </div>
-      <Footer />
+      <div className={styles.footerContainer}>
+        <Footer />
+      </div>
     </div>
   );
 }

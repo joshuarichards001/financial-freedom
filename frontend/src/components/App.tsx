@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./Home";
-import LoginForm from "./LoginForm";
+import Home from "../Home";
+import LoginForm from "../LoginForm";
 import { loginUser, registerUser, loginSocialUser } from "../actions/userAPI";
 
 interface IUserManager {

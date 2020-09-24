@@ -10,7 +10,7 @@ interface Props {
 
 export default function TransactionList({transactionList, deleteTransaction}: Props): ReactElement {
   return (
-    <div className={styles.transactionTableDiv}>
+    <div className={styles.tableStyle}>
       <table>   
         <thead>
           <tr>

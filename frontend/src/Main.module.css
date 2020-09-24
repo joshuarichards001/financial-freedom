@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -10,109 +10,41 @@ body {
 
 html,
 body {
- height: 100%;
- overflow-x: hidden;
+  height: 100%;
 }
 
-.content {
+/* Home Wrappers */
+.headerContainer {
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 9999;
+  background-color: #333;
+  padding-left: 20px;
+}
+
+.contentContainer {
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
-  margin-left: 90px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.footerContainer {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 20px;
 }
 
 .container {
   background-color: #ffffff;
-  position: relative;
   border-radius: 10px;
   padding: 15px;
   margin: 10px;
-  height: 635px;
+  height: 630px;
   width: 450px;
 }
 
-
-
-/* Header */
-.header {
-  width: 100%;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 9999;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px 0 80px;
-  overflow: hidden;
-  background-color: #333;
-  align-items: center;
-}
-
-.headerLogo {
-  float: left;
-  letter-spacing: 1px;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 14px 20px 20px;
-  cursor: default;
-}
-
-.burger {
-  cursor: pointer;
-}
-
-.burger div {
-  width: 25px;
-  height: 2px;
-  background-color: white;
-  margin: 5px;
-}
-
-.headerList {
-  list-style-type: none;
-  background-color: #333;
-  position: absolute;
-  right: -100%;
-  top: 59px;
-  display: flex;
-  flex-direction: column;
-  transition: 850ms;
-}
-
-.headerListActive {
-  list-style-type: none;
-  background-color: #333;
-  position: absolute;
-  right: 0;
-  transition: 350ms;
-  top: 59px;
-  display: flex;
-  flex-direction: column;
-}
-
-.headerItem {
-  float: right;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: left;
-  padding: 14px 40px 20px 20px;
-  text-decoration: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-li a:hover {
-  background-color: #111;
-}
-
-/* Login Page */
 .loginForm {
   display: flex;
   justify-content: flex-start;
@@ -122,17 +54,72 @@ li a:hover {
   border-radius: 10px;
   padding: 50px;
   margin: 10px;
-  height: 550px;
+  height: 420px;
   width: 250px;
 }
 
+h2 {
+  margin-bottom: 20px;
+}
 
+/* Header */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.headerLogo {
+  letter-spacing: 1px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 14px 20px 20px;
+  cursor: default;
+}
+
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.headerDropDown {
+  position: relative;
+  display: inline-block;
+}
+
+.headerContent {
+  position: absolute;
+  right: 0;
+  background-color:  #333;
+  min-width: 230px;
+  z-index: 999;
+}
+
+.headerContent a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.headerContent a:hover {background-color: #222;}
+
+.headerDropDown:hover .dropbtn {
+  background-color: #222;
+}
 
 /* Data visualisation */
 .pieChart {
   margin: 0px 0px 20px;
 }
-
 
 /* Add Transaction Form */
 .gridContainer {
@@ -140,8 +127,12 @@ li a:hover {
   grid-template-columns: 150px 150px 150px;
 }
 
+.labelStyle {
+  margin: 0px 6px;
+}
+
 .inputStyle {
-  margin: 4px 2px;
+  margin: 4px 4px;
   padding: 2px;
   border-radius: 4px;
   border-width: 2px;
@@ -150,9 +141,8 @@ li a:hover {
 
 .buttonStyle {
   border-radius: 4px;
-  color: black;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 4px 4px;
   padding: 2px;
   cursor: pointer;
   background-color: white;
@@ -165,14 +155,23 @@ li a:hover {
   filter: brightness(90%);
 }
 
-
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  margin: 4px 6px;
+  padding: 7px;
+  border-radius: 4px;
+  border-width: 2px;
+  border-color: black;
+  width: 100%;
+}
 
 /* Transactions */
 ::-webkit-scrollbar {
   width: 0px;
 }
 
-.transactionTableDiv {
+.tableStyle {
   overflow:hidden;
   overflow-y: scroll;
   height: 440px;
@@ -183,16 +182,6 @@ li a:hover {
   margin: 20px 0 0 0;
 }
 
-.categoryTableDiv {
-  overflow:hidden;
-  overflow-y: scroll;
-  border-style: solid;
-  border-color: #111;
-  border-width: 2px;
-  border-radius: 5px;
-  margin: 20px 0 0 0;
-}
-
 table {
   border-collapse: collapse;
   text-align: left;
@@ -200,9 +189,11 @@ table {
   width: 100%;
 }
 
-th, td {
+th,
+td {
   text-align: left;
-  padding: 8px;
+  padding: 7px;
+  border-bottom: 1px solid #ddd;
 }
 
 th {
@@ -211,8 +202,12 @@ th {
   top: 0;
 }
 
-tr:nth-child(even){background-color: #eeeeee}
-tr:hover {background-color:#dddddd;}
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+tr:hover {
+  background-color: #dddddd;
+}
 
 /* Transaction Delete Button */
 .deleteButton {
@@ -229,11 +224,12 @@ tr:hover {background-color:#dddddd;}
   filter: brightness(90%);
 }
 
+/* Footer */
 .footer {
   align-content: center;
   display: flex;
-  margin: 10px 100px;
   overflow: hidden;
+  margin: 10px;
   background-color: white;
   border-radius: 10px;
   width: 480px;
@@ -241,7 +237,8 @@ tr:hover {background-color:#dddddd;}
   position: relative;
 }
 
-.footer > p, a {
+.footer > p,
+a {
   padding-left: 20px;
   padding-right: 10px;
 }
@@ -250,4 +247,6 @@ tr:hover {background-color:#dddddd;}
   line-height: 30px;
 }
 
-svg > g > g:last-child { pointer-events: none }
+svg > g > g:last-child {
+  pointer-events: none;
+}

@@ -2,11 +2,17 @@ import React, { ReactElement, useState, useRef, useEffect } from "react";
 import styles from "../Main.module.css";
 import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "../Constants";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../Main.module.css";
+
 interface Props {
   addTransaction: HandleAddTransaction;
 }
 
-export default function AddTransaction({ addTransaction }: Props): ReactElement {
+export default function AddTransaction({
+  addTransaction,
+}: Props): ReactElement {
   const expenseColor: string = "#ffe6e6";
   const incomeColor: string = "#e5ffe7";
   const categorySelect = useRef<HTMLSelectElement>(null);
@@ -14,7 +20,8 @@ export default function AddTransaction({ addTransaction }: Props): ReactElement 
   const [amount, setAmount] = useState(0.0);
   const [category, setCategory] = useState("");
   const [color, setColor] = useState(expenseColor);
-  
+  const [startDate, setStartDate] = useState(new Date());
+
   // sets whether the categories shown are for an income or expense based on what was clicked
   useEffect(() => {
     if (categorySelect && categorySelect.current) {
@@ -60,8 +67,8 @@ export default function AddTransaction({ addTransaction }: Props): ReactElement 
           Expense
         </button>
         <div></div>
-        <label>Amount</label>
-        <label>Category</label>
+        <label className={styles.labelStyle}>Amount</label>
+        <label className={styles.labelStyle}>Category</label>
         <div></div>
         <input
           type="number"
@@ -78,9 +85,17 @@ export default function AddTransaction({ addTransaction }: Props): ReactElement 
           className={styles.inputStyle}
           style={{ backgroundColor: color }}
           onChange={(e) => {
-            setCategory(e.target.value)
+            setCategory(e.target.value);
           }}
         />
+        {/* <label className={styles.labelStyle}>Date</label>
+        <label className={styles.labelStyle}>Time</label>
+        <DatePicker
+          selected={startDate}
+          showTimeSelect
+          dateFormat="dd/MM/yyyy HH:mm"
+          onChange={(date) => setStartDate(date)}
+        /> */}
         <button
           type="submit"
           className={styles.buttonStyle}
