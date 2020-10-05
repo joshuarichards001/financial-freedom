@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { tokenConfig } from "./transactionAPI";
-import { baseUrl } from "../Constants";
+import { baseUrl } from "./Constants";
 
 export const registerUser = async (
   email: string,
@@ -14,8 +14,6 @@ export const registerUser = async (
       },
     };
     const body = JSON.stringify({ email, username, password });
-    console.log(body);
-    console.log(config);
     const login: AxiosResponse<ApiDataType> = await axios.post(
       baseUrl + "/auth/users/",
       body,
@@ -50,7 +48,7 @@ export const loginUser = async (
 };
 
 export const loginSocialUser = async (
-  accesstoken
+  accesstoken: string
 ): Promise<AxiosResponse<ApiDataType>> => {
   try {
     const login: AxiosResponse<ApiDataType> = await axios.post(

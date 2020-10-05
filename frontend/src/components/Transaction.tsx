@@ -12,6 +12,7 @@ export default function Transaction({
 }: Props): ReactElement {
   return (
     <tr style={{ color: transaction.income ? "green" : "red" }}>
+      <td className={styles.transactionItem}>{transaction.date}</td>
       <td className={styles.transactionItem}>{transaction.category}</td>
       <td className={styles.transactionItem}>{transaction.amount}</td>
       <td className={styles.transactionItem}>

@@ -1,6 +1,6 @@
 import React, { ReactElement, useState, useRef, useEffect } from "react";
 import styles from "../Main.module.css";
-import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "../Constants";
+import { EXPENSE_CATEGORIES, INCOME_CATEGORIES } from "../helper/Constants";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,7 +20,7 @@ export default function AddTransaction({
   const [amount, setAmount] = useState(0.0);
   const [category, setCategory] = useState("");
   const [color, setColor] = useState(expenseColor);
-  const [startDate, setStartDate] = useState(new Date());
+  const [date, setDate] = useState(new Date().toISOString().substr(0,10));
 
   // sets whether the categories shown are for an income or expense based on what was clicked
   useEffect(() => {
@@ -66,10 +66,8 @@ export default function AddTransaction({
         >
           Expense
         </button>
-        <div></div>
         <label className={styles.labelStyle}>Amount</label>
         <label className={styles.labelStyle}>Category</label>
-        <div></div>
         <input
           type="number"
           value={amount}
@@ -88,22 +86,26 @@ export default function AddTransaction({
             setCategory(e.target.value);
           }}
         />
-        {/* <label className={styles.labelStyle}>Date</label>
-        <label className={styles.labelStyle}>Time</label>
-        <DatePicker
-          selected={startDate}
-          showTimeSelect
-          dateFormat="dd/MM/yyyy HH:mm"
-          onChange={(date) => setStartDate(date)}
-        /> */}
+        <label className={styles.labelStyle}>Date/Time</label>
+        <div></div>
+        <input
+          type="date"
+          value={date}
+          className={styles.inputStyle}
+          style={{ backgroundColor: color }}
+          onChange={(e) => {
+            setDate(e.target.value);
+          }}
+        />
         <button
           type="submit"
           className={styles.buttonStyle}
           onClick={(e) => {
             e.preventDefault();
-            addTransaction(income, amount, category);
+            addTransaction(income, new Date(date).toISOString().replace(/T.*/,'').split('-').reverse().join('/'), amount, category);
             setAmount(0.0);
             setCategory("");
+            setDate(new Date().toISOString().substr(0,10));
           }}
         >
           Add Transaction

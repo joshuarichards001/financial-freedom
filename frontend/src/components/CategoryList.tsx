@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import styles from '../Main.module.css'
 import Category from './Category'
-import { EXPENSE_CATEGORIES } from '../Constants';
+import { EXPENSE_CATEGORIES } from '../helper/Constants';
 
 interface Props {
   transactionList: Transaction[];

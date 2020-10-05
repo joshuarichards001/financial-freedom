@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { baseUrl } from "../Constants"
+import { baseUrl } from "./Constants"
 
 export const getTransactions = async (token: string): Promise<AxiosResponse<ApiDataType>> => {
   try {
@@ -10,10 +10,10 @@ export const getTransactions = async (token: string): Promise<AxiosResponse<ApiD
   }
 };
 
-export const addTransaction = async (token: string, income: boolean, amount: number, category: string): Promise<AxiosResponse<ApiDataType>> => {
+export const addTransaction = async (token: string, income: boolean, date: string, amount: number, category: string): Promise<AxiosResponse<ApiDataType>> => {
   try {
     const transaction: Omit<Transaction, "id"|"owner_id"> = {
-      income: income, amount: amount, category: category,
+      income: income, date: date, amount: amount, category: category,
     };
     const saveTransaction: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/transactions/",transaction, tokenConfig(token));
     return saveTransaction;

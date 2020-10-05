@@ -27,4 +27,4 @@ export const EXPENSE_CATEGORIES: string[] = [
   'Other'
 ];
 
-export const baseUrl: string = "https://financial-freedom-api.herokuapp.com"//"http://127.0.0.1:8000"
+export const baseUrl: string = "https://financial-freedom-api.herokuapp.com"

@@ -1,6 +1,7 @@
 interface Transaction {
   id: string,
   income: boolean,
+  date: string,
   amount: number,
   category: string,
   owner_id: number,
@@ -12,7 +13,7 @@ interface userInfo {
   username: string
 }
 
-type HandleAddTransaction = (income: boolean, amount: number, category: string) => void;
+type HandleAddTransaction = (income: boolean, date: string, amount: number, category: string) => void;
 type HandleDeleteTransaction = (id: string) => void;
 type HandleFetchTransactions = () => void;
 

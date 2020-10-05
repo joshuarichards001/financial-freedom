@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from "../Home";
-import LoginForm from "../LoginForm";
-import { loginUser, registerUser, loginSocialUser } from "../actions/userAPI";
+import Home from "./Home";
+import LoginForm from "./LoginForm";
+import { loginUser, registerUser, loginSocialUser } from "./helper/userAPI";
 
 interface IUserManager {
   setIsLoggedIn: Function;

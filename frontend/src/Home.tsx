@@ -7,13 +7,14 @@ import FlowPieChart from "./components/FlowPieChart";
 import CategoryPieChart from "./components/CategoryPieChart";
 import CategoryList from "./components/CategoryList";
 import Footer from "./components/Footer";
+import TimeFrame from "./components/TimeFrame";
 import styles from "./Main.module.css";
 import {
   getTransactions,
   addTransaction,
   deleteTransaction,
-} from "./actions/transactionAPI";
-import { userDetails, logoutUser } from "./actions/userAPI";
+} from "./helper/transactionAPI";
+import { userDetails, logoutUser } from "./helper/userAPI";
 
 interface Props {
   token: string;
@@ -84,7 +85,9 @@ export default function Home({ token }: Props) {
   const handleFetchTransactions: HandleFetchTransactions = () => {
     getTransactions(token)
       .then(({ data }: Transaction[] | any) => {
-        setTransactionList(data.reverse());
+        setTransactionList(
+          data.reverse()
+        );
       })
       .catch((err: Error) => console.log(err));
   };
@@ -92,10 +95,11 @@ export default function Home({ token }: Props) {
   // Adds the given transaction to the API
   const handleAddTransaction: HandleAddTransaction = (
     income: boolean,
+    date: string,
     amount: number,
     category: string
   ) => {
-    addTransaction(token, income, amount, category)
+    addTransaction(token, income, date, amount, category)
       .then(() => {
         handleFetchTransactions();
       })
@@ -123,6 +127,9 @@ export default function Home({ token }: Props) {
           showData={showData}
           showBudg={showBudget}
         />
+      </div>
+      <div className={styles.timeframeContainer}>
+        <TimeFrame />
       </div>
       <div className={styles.contentContainer}>
         {showTransactions ? (
