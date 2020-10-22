@@ -142,7 +142,7 @@ export default function LoginForm({
             </p>
           ) : null}
         </form>
-        <div className={styles.loginForm} style={{ width: "300px" }}>
+        <div className={styles.loginForm}>
           <h1>Info</h1>
           <p style={{ marginTop: "20px" }}>
             You can either log in as a guest, register yourself, login with

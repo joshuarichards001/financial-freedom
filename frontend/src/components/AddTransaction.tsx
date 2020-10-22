@@ -20,7 +20,7 @@ export default function AddTransaction({
   const [amount, setAmount] = useState(0.0);
   const [category, setCategory] = useState("");
   const [color, setColor] = useState(expenseColor);
-  const [date, setDate] = useState(new Date().toISOString().substr(0,10));
+  const [date, setDate] = useState(new Date().toLocaleDateString().split('/').reverse().join('-'));
 
   // sets whether the categories shown are for an income or expense based on what was clicked
   useEffect(() => {
@@ -86,7 +86,7 @@ export default function AddTransaction({
             setCategory(e.target.value);
           }}
         />
-        <label className={styles.labelStyle}>Date/Time</label>
+        <label className={styles.labelStyle}>Date</label>
         <div></div>
         <input
           type="date"
@@ -102,10 +102,10 @@ export default function AddTransaction({
           className={styles.buttonStyle}
           onClick={(e) => {
             e.preventDefault();
-            addTransaction(income, new Date(date).toISOString().replace(/T.*/,'').split('-').reverse().join('/'), amount, category);
+            addTransaction(income, new Date(date).toLocaleDateString(), amount, category);
             setAmount(0.0);
             setCategory("");
-            setDate(new Date().toISOString().substr(0,10));
+            setDate(new Date().toLocaleDateString().split('/').reverse().join('-'));
           }}
         >
           Add Transaction

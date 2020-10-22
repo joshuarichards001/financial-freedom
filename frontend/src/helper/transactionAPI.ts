@@ -18,6 +18,7 @@ export const addTransaction = async (token: string, income: boolean, date: strin
     const saveTransaction: AxiosResponse<ApiDataType> = await axios.post(baseUrl + "/transactions/",transaction, tokenConfig(token));
     return saveTransaction;
   } catch (error) {
+    console.log("error in the add")
     throw new Error(error);
   }
 };

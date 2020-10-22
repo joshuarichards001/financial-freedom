@@ -9,6 +9,7 @@ django-cors-headers==3.5.0
 django-templated-mail==1.1.1
 djangorestframework==3.12.1
 djoser==2.0.5
+gunicorn==20.0.4
 idna==2.10
 oauthlib==3.1.0
 python3-openid==3.2.0
